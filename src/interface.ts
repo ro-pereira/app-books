@@ -23,3 +23,7 @@ export interface IBooksList {
   status: string;
   error: null | string | undefined;
 }
+
+export interface ICardProps {
+  allBooks: IBooksResponse[];
+}

@@ -1,30 +1,14 @@
-import { useEffect, useState } from "react";
-import { allBooksList, fetchBooks } from "../../store/Slices/BookListSlice";
-import { useAppDispatch } from "../../store/hook";
+import Container from "../../components/Container/Container";
+import Header from "../../components/Header/Header";
 import "./home.sass";
-import { IBooksResponse } from "../../interface";
-import { useSelector } from "react-redux";
 
 const Home = () => {
-  const [allBooks, setAllBooks] = useState<IBooksResponse[]>([]);
-  const dispatch = useAppDispatch();
-
-  const { books } = useSelector(allBooksList);
-
-  useEffect(() => {
-    dispatch(fetchBooks());
-  }, [dispatch]);
-
-  useEffect(() => {
-    setAllBooks(books);
-  }, [books]);
-
-  console.log(allBooks);
-  
-
   return (
     <>
-      <main className="home">home</main>
+    <Header />
+      <main className="home">
+        <Container />
+      </main>
     </>
   );
 };

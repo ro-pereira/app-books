@@ -1,0 +1,30 @@
+@import './src/styles/mixins.sass'
+
+div.card
+    width: 25rem
+    height: 44rem
+    @include flex-column
+    align-items: center
+    gap: 1rem
+    position: relative
+
+    div.card__bg
+        width: 25rem
+        height: 36rem
+        border-radius: 1rem
+        background-position: center !important
+        background-size: cover !important
+        background-clip: content-box !important
+        background-repeat: no-repeat !important
+        position: relative
+
+    &:hover
+        transform: scale(1.1) !important
+
+    div.card__title
+        @include flex-column
+        align-items: center
+        padding: 1rem
+        border-radius: 1rem
+        background: rgb(58, 64, 90)
+        color: #eaecf1
