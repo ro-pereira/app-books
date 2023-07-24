@@ -1,13 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 import RoutesComponets from "./Routes";
-import "./globalStyle.sass";
+import { store } from "./store/store";
+import "./styles/globalStyle.sass";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <RoutesComponets />
+    <Provider store={store}>
+      <RoutesComponets />
+    </Provider>
   </React.StrictMode>
 );

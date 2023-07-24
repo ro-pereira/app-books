@@ -1,0 +1,33 @@
+//Layout
+@mixin flex-row
+    display: flex
+    flex-direction: row
+
+@mixin flex-column
+    display: flex
+    flex-direction: column
+
+@mixin flex-row-juntify-align-center
+    @include flex-row
+    justify-content: center
+    align-items: center
+
+@mixin flex-row-align-center
+    @include flex-row
+    align-items: center
+
+@mixin flex-column-align-center
+    @include flex-column
+    align-items: center
+
+@mixin flex-row-juntify-center
+    @include flex-row
+    justify-content: center
+
+@mixin flex-column-juntify-center
+    @include flex-column
+    justify-content: center
+
+@mixin flex-wrap
+    flex-wrap: wrap
+    display: flex

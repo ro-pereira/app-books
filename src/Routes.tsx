@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 
-function RoutesComponets() {
+const RoutesComponets = () => {
   return (
     <div className="routes">
       <BrowserRouter>
@@ -11,7 +11,7 @@ function RoutesComponets() {
         </Routes>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default RoutesComponets;
