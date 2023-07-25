@@ -1,4 +1,5 @@
 import { ICardProps } from "../../interface";
+import Dropbox from "../Dropbox/Dropbox";
 import "./card.sass";
 
 const Card = ({ allBooks }: ICardProps) => {
@@ -6,11 +7,13 @@ const Card = ({ allBooks }: ICardProps) => {
     <>
       {allBooks.map((book) => {
         return (
-          <div className="card">
+          <div className="card" key={book.id}>
             <div
-              className="card__bg"
+              className="card__img"
               style={{ background: `url(${book.image_url}` }}
-            ></div>
+            >
+              <Dropbox id={book.id} />
+            </div>
 
             <div className="card__title">
               <h1>{book.title}</h1>

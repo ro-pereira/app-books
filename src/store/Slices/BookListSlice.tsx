@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../store";
 import { IBooksList } from "../../interface";
+import { RootState } from "../store";
 
 export const fetchBooks = createAsyncThunk("bookslist/fetchBooks", async () => {
   const response = await fetch(
@@ -14,12 +14,25 @@ const initialState: IBooksList = {
   books: [],
   status: "idle",
   error: null,
+  readingOptions: ["Read", "Want to read", "Currently reading", "empty"],
 };
 
 const bookslistSlice = createSlice({
   name: "booksList",
   initialState,
-  reducers: {},
+  reducers: {
+    alreadyRead: (state, action) => {
+      const filterBook = state.books.find(
+        (book) => book.id === action.payload.id
+      );
+
+      if (!filterBook) {
+        throw new Error("Book not find");
+      }
+
+      filterBook.bookmark = action.payload.bookmark;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (state) => {
@@ -39,5 +52,6 @@ const bookslistSlice = createSlice({
   },
 });
 
+export const { alreadyRead } = bookslistSlice.actions;
 export const allBooksList = (state: RootState) => state.books;
 export default bookslistSlice;

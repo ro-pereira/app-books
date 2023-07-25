@@ -22,8 +22,13 @@ export interface IBooksList {
   books: IBooksResponse[];
   status: string;
   error: null | string | undefined;
+  readingOptions: string[];
 }
 
 export interface ICardProps {
   allBooks: IBooksResponse[];
+}
+
+export interface IDropboxProps {
+  id: number
 }
