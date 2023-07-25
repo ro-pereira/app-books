@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface IBooksResponse {
   Quote1: string;
   Quote2: string;
@@ -27,8 +29,21 @@ export interface IBooksList {
 
 export interface ICardProps {
   allBooks: IBooksResponse[];
+  setSelectedBookId: Dispatch<SetStateAction<number | null>>;
 }
 
 export interface IDropboxProps {
   id: number
+}
+
+export interface IModalProps {
+  allBooks: IBooksResponse[];
+  selectedBookId: number | null;
+  setSelectedBookId: Dispatch<SetStateAction<number | null>>;
+}
+
+export interface IChipProps {
+  content: string;
+  title: string;
+  selectedOptionsTextType?: string;
 }

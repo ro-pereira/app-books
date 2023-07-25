@@ -5,11 +5,13 @@ import { allBooksList, fetchBooks } from "../../store/Slices/BookListSlice";
 import { useAppDispatch } from "../../store/hook";
 import Card from "../Card/Card";
 import "./container.sass";
+import Modal from "../Modal/Modal";
 
 const Container = () => {
-  const [allBooks, setAllBooks] = useState<IBooksResponse[]>([]);
   const dispatch = useAppDispatch();
   const { books } = useSelector(allBooksList);
+  const [allBooks, setAllBooks] = useState<IBooksResponse[]>([]);
+  const [selectedBookId, setSelectedBookId] = useState<number | null>(null);
 
   useEffect(() => {
     dispatch(fetchBooks());
@@ -21,7 +23,12 @@ const Container = () => {
 
   return (
     <div className="container">
-      <Card allBooks={allBooks} />
+      <Card allBooks={allBooks} setSelectedBookId={setSelectedBookId} />
+      <Modal
+        selectedBookId={selectedBookId}
+        allBooks={allBooks}
+        setSelectedBookId={setSelectedBookId}
+      ></Modal>
     </div>
   );
 };

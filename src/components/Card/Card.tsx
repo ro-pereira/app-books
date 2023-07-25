@@ -2,12 +2,12 @@ import { ICardProps } from "../../interface";
 import Dropbox from "../Dropbox/Dropbox";
 import "./card.sass";
 
-const Card = ({ allBooks }: ICardProps) => {
+const Card = ({ allBooks, setSelectedBookId }: ICardProps) => {
   return (
     <>
       {allBooks.map((book) => {
         return (
-          <div className="card" key={book.id}>
+          <div className="card" key={book.id} onClick={() => setSelectedBookId(book.id)}>
             <div
               className="card__img"
               style={{ background: `url(${book.image_url}` }}
