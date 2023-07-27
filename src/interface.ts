@@ -25,6 +25,9 @@ export interface IBooksList {
   status: string;
   error: null | string | undefined;
   readingOptions: string[];
+  filterOptions: {
+    inputValue: string;
+  };
 }
 
 export interface ICardProps {

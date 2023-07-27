@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IBooksResponse, IModalProps } from "../../interface";
 import Chip from "../Chip/Chip";
+import Dropbox from "../Dropbox/Dropbox";
 import "./modal.sass";
 
 const optionsTextTypes = ["description", "Quote1", "Quote2", "Quote3"];
@@ -22,6 +23,7 @@ const Modal = ({
   useEffect(() => {
     const findBook = allBooks.find((e) => e.id === selectedBookId);
     setBookSelected(findBook);
+    
   }, [allBooks, selectedBookId]);
 
   const handleCloseModal = () => {
@@ -63,6 +65,9 @@ const Modal = ({
             </div>
 
             <div className="modal__content__information">
+              <div>
+                <Dropbox id={bookSelected.id}></Dropbox>
+              </div>
               <div className="modal__content__information__title">
                 <div className="modal__content__information__title-authors">
                   <h1>{bookSelected.title}</h1>

@@ -57,18 +57,17 @@
                 align-items: center
                 justify-content: center
                 gap: 1rem
-                
+
         .modal__content__information
+            position: relative
             @include flex-column
             align-items: center
-            padding: 3rem 1rem
             gap: 2rem
 
             div.modal__content__information__title
                 width: 100%
-                min-height: 20%
+                height: 20%
                 @include flex-column
-                gap: 2rem
                 justify-content: space-between
 
                 div.modal__content__information__title-authors
@@ -81,7 +80,6 @@
                         color: rgba(58, 64, 90, 0.712)
 
                 div.modal__content__information__title__pages-rating
-                    width: 80%
                     @include flex-row
                     justify-content: space-between
 
@@ -100,6 +98,7 @@
 
             div.modal__content__information__text-Types
                 @include flex-wrap
+                padding: 0 1rem
                 gap: 1.5rem
                 height: 8%
                 button
@@ -115,6 +114,7 @@
             @include flex-column
             overflow: scroll
             height: 80vh
+            width: 70vw
 
             .modal__content__img
                 height: 50%
@@ -135,6 +135,7 @@
                     min-height: 28%
 
             .modal__content__information
+                // position: relative
                 width: 100%
                 height: 50%
 
@@ -142,7 +143,6 @@
                     width: 85%
 
                     div.modal__content__information__title-authors
-
                         h1
                             font-size: 1.8rem
 
@@ -150,7 +150,8 @@
                             font-size: 1.2rem
 
                     div.modal__content__information__title__pages-rating
-                        width: 85%
+                        width: 100%
+                        // background: #00000054
                         span
                             font-size: 1.2rem
 
@@ -241,17 +242,19 @@
 
                 .modal__content__img__geners
                     padding: 2rem 5rem
-                    min-height: 25%
+                    min-height: 20%
 
             .modal__content__information
                 width: 50%
+                padding: .5rem
 
                 div.modal__content__information__title
+                    min-height: 20%
+                    overflow: hidden
                     width: 75%
 
                     div.modal__content__information__title-authors
                         width: 95%
-                        gap: .5rem
 
                         h1
                             font-size: 2.5rem

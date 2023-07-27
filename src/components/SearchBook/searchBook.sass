@@ -1,0 +1,37 @@
+@import './src/styles/mixins.sass'
+.search
+    @include flex-row
+    gap: .5rem
+    max-height: 4rem
+    position: relative
+
+    input
+        all: unset
+        height: 3rem
+        width: 12rem
+        border: 1px solid rgb(58, 64, 90)
+        padding: .5rem 3.5rem .5rem .5rem
+        border-radius: .5rem
+        box-shadow: 2px 2px 3px 2px rgba(58, 64, 90, 0.452)
+        background: url(../../assets/icon-search.png)
+        background-repeat: no-repeat
+        background-size: 3rem
+        background-position: right
+
+@media (max-width: 768px)
+    .search
+        input
+            width: 8rem
+            font-size: 1.2rem
+
+@media (min-width: 769px) and (max-width: 1400px)
+    .search
+        input
+            width: 12rem
+            font-size: 1.2rem
+
+@media (min-width: 1400px)
+    .search
+        input
+            width: 16rem
+            font-size: 1.4rem

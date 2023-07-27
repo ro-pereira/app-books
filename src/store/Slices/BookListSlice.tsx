@@ -15,6 +15,9 @@ const initialState: IBooksList = {
   status: "idle",
   error: null,
   readingOptions: ["Read", "Want to read", "Currently reading", "empty"],
+  filterOptions: {
+    inputValue: "",
+  },
 };
 
 const bookslistSlice = createSlice({
@@ -31,6 +34,14 @@ const bookslistSlice = createSlice({
       }
 
       filterBook.bookmark = action.payload.bookmark;
+    },
+    handleChangeValueFilter: (state, action) => {
+      const { type, value } = action.payload;
+      const { filterOptions } = state;
+
+      if (type === "inputValue") {
+        filterOptions.inputValue = value;
+      }
     },
   },
   extraReducers: (builder) => {
@@ -52,6 +63,6 @@ const bookslistSlice = createSlice({
   },
 });
 
-export const { alreadyRead } = bookslistSlice.actions;
+export const { alreadyRead, handleChangeValueFilter } = bookslistSlice.actions;
 export const allBooksList = (state: RootState) => state.books;
 export default bookslistSlice;

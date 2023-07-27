@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import dropdownIcon from "../../assets/arrow-down.png";
 import checkMark from "../../assets/check-mark.png";
@@ -8,21 +8,32 @@ import { useAppDispatch } from "../../store/hook";
 import "./dropbox.sass";
 
 const Dropbox = ({ id }: IDropboxProps) => {
-  const [showDropbox, setShowDropbox] = useState<null | number>(null);
+  const { books } = useSelector(allBooksList);
+  const [showDropboxId, setShowDropboxIdId] = useState<null | number>(null);
   const [selectedOption, setSelectedOption] = useState("empty");
   const { readingOptions } = useSelector(allBooksList);
   const dispatch = useAppDispatch();
 
-  const toggleOpen = (
+  useEffect(() => {
+    const filterSelection = books.find((e) => id === e.id);
+    if (filterSelection) setSelectedOption(filterSelection.bookmark);
+  }, [books, id]);
+
+  useEffect(() => {
+    if (showDropboxId)
+      dispatch(alreadyRead({ id: showDropboxId, bookmark: selectedOption }));
+  }, [dispatch, selectedOption, showDropboxId]);
+
+  const toggleOpenDropdown = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     id: number
   ) => {
     e.stopPropagation();
-    if (id === showDropbox) {
-      setShowDropbox(null);
+    if (id === showDropboxId) {
+      setShowDropboxIdId(null);
       return;
     }
-    setShowDropbox(id);
+    setShowDropboxIdId(id);
   };
 
   const handleChooseOptions = (
@@ -30,8 +41,6 @@ const Dropbox = ({ id }: IDropboxProps) => {
     option: string
   ) => {
     e.stopPropagation();
-
-    dispatch(alreadyRead({ id: id, bookmark: option }));
     setSelectedOption(option);
   };
 
@@ -39,13 +48,13 @@ const Dropbox = ({ id }: IDropboxProps) => {
     <div>
       <button
         id="button"
-        className={showDropbox === id ? "active" : "inactive"}
-        onClick={(e) => toggleOpen(e, id)}
+        className={showDropboxId === id ? "active" : "inactive"}
+        onClick={(e) => toggleOpenDropdown(e, id)}
       >
         <img src={dropdownIcon} alt="bookmark" />
       </button>
 
-      {showDropbox && (
+      {showDropboxId && (
         <div className="dropbox">
           <ul>
             {readingOptions.map((option) => (

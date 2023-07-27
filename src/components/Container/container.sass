@@ -1,7 +1,6 @@
 @import './src/styles/mixins.sass'
 
 .container
-    // gap: 4rem
     @include flex-wrap
     justify-content: center
 
@@ -9,23 +8,18 @@
     .container
         padding: 0 1rem
         gap: 3rem
-        // background: #0000002f
-        // padding: 4rem
 
 @media (min-width: 769px) and (max-width: 1025px)
     .container
-        // background: #0000001f
         padding: 0
         gap: 3rem
 
 @media (min-width: 1025px) and (max-width: 1400px)
     .container
-        // background: #0000001f
         padding: 0
         gap: 4rem
 
 @media (min-width: 1400px)
     .container
-        // background: #0000001f
         padding: 0
         gap: 4rem
