@@ -4,7 +4,7 @@ import { RootState } from "../store";
 
 export const fetchBooks = createAsyncThunk("bookslist/fetchBooks", async () => {
   const response = await fetch(
-    "https://example-data.draftbit.com/books?_limit=10"
+    "https://example-data.draftbit.com/books?_limit=50"
   );
   const data = await response.json();
   return data;
@@ -17,6 +17,8 @@ const initialState: IBooksList = {
   readingOptions: ["Read", "Want to read", "Currently reading", "empty"],
   filterOptions: {
     inputValue: "",
+    generSearch: "",
+    readingOption: "",
   },
 };
 
@@ -42,6 +44,21 @@ const bookslistSlice = createSlice({
       if (type === "inputValue") {
         filterOptions.inputValue = value;
       }
+
+      if (type === "optionReading") {
+        filterOptions.readingOption = value;
+      }
+
+      if (type === "generSearch") {
+        filterOptions.generSearch = value;
+      }
+    },
+    cleanFilter: (state) => {
+      state.filterOptions = {
+        inputValue: "",
+        generSearch: "",
+        readingOption: "",
+      };
     },
   },
   extraReducers: (builder) => {
@@ -63,6 +80,6 @@ const bookslistSlice = createSlice({
   },
 });
 
-export const { alreadyRead, handleChangeValueFilter } = bookslistSlice.actions;
+export const { alreadyRead, handleChangeValueFilter, cleanFilter } = bookslistSlice.actions;
 export const allBooksList = (state: RootState) => state.books;
 export default bookslistSlice;

@@ -12,7 +12,7 @@ const Container = () => {
   const { books, filterOptions } = useSelector(allBooksList);
   const [allBooks, setAllBooks] = useState<IBooksResponse[]>([]);
   const [selectedBookId, setSelectedBookId] = useState<number | null>(null);
-  const { inputValue } = filterOptions;
+  const { inputValue, generSearch, readingOption } = filterOptions;
 
   useEffect(() => {
     dispatch(fetchBooks());
@@ -33,12 +33,48 @@ const Container = () => {
       );
     };
 
+    const findChosenGere = (book: IBooksResponse[]) => {
+      return book.filter((e) =>
+        e.genre_list
+          .split(",", e.genre_list.length)
+          .find((e) => e === generSearch)
+      );
+    };
+
+    const findChosenOption = (book: IBooksResponse[]) => {
+      return book.filter((e) => e.bookmark === readingOption);
+    };
+
+    if (inputValue && generSearch && readingOption) {
+      return findInputChange(findChosenGere(findChosenOption(filtered)));
+    }
+
+    if (inputValue && generSearch) {
+      return findChosenGere(findInputChange(filtered));
+    }
+
+    if (inputValue && readingOption) {
+      return findInputChange(findChosenOption(filtered));
+    }
+
+    if (generSearch && readingOption) {
+      return findChosenGere(findChosenOption(filtered));
+    }
+
     if (inputValue) {
       return findInputChange(filtered);
     }
+    //
+    if (generSearch) {
+      return findChosenGere(filtered);
+    }
+
+    if (readingOption) {
+      return findChosenOption(filtered);
+    }
 
     return filtered;
-  }, [books, inputValue]);
+  }, [books, inputValue, generSearch, readingOption]);
 
   useEffect(() => {
     setAllBooks(filteredBooks);
@@ -51,7 +87,7 @@ const Container = () => {
         selectedBookId={selectedBookId}
         allBooks={allBooks}
         setSelectedBookId={setSelectedBookId}
-      ></Modal>
+      />
     </div>
   );
 };

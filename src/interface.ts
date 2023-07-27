@@ -27,6 +27,8 @@ export interface IBooksList {
   readingOptions: string[];
   filterOptions: {
     inputValue: string;
+    generSearch: string;
+    readingOption: string;
   };
 }
 
@@ -49,4 +51,9 @@ export interface IChipProps {
   content: string;
   title: string;
   selectedOptionsTextType?: string;
+}
+
+export interface IFilterBook {
+  items: string[];
+  type: string;
 }

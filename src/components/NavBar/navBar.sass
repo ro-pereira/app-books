@@ -1,0 +1,46 @@
+@import './src/styles/mixins.sass'
+
+.navBar
+    position: relative
+    display: flex
+    gap: 2rem
+    justify-content: space-between
+    flex-wrap: wrap
+
+    div.navBar__buttons
+        width: auto
+        @include flex-row
+        gap: 2rem
+        position: relative
+
+    .navBar__content
+        width: 25.5rem
+        min-height: 20rem
+        position: absolute
+        right: 0rem
+        top: 5rem
+        z-index: 2
+        border-radius: .5rem
+        background: rgb(255, 255, 255)
+        border: 1px solid rgb(58, 64, 90)
+
+        div
+            @include flex-column
+
+        div.navBar__content__reading-options
+            display: flex
+            flex-wrap: wrap
+            ul
+                display: flex
+                flex-wrap: wrap
+
+        button.navBar__content__geners__button
+            all: unset
+            background: rgb(197, 213, 240)
+            padding: 1rem
+            text-align: center
+            font-size: 1.2rem
+            border: 1px solid rgb(58, 64, 90)
+
+            &:hover
+                background: rgba(197, 213, 240, 0.63)

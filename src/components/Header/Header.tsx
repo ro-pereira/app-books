@@ -1,11 +1,12 @@
-import SearchBook from "../SearchBook/SearchBook";
+import NavBar from "../NavBar/NavBar";
 import "./header.sass";
 
 const Header = () => {
+
   return (
     <header>
       <h1>Books</h1>
-      <SearchBook />
+      <NavBar></NavBar>
     </header>
   );
 };
