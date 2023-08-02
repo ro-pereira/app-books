@@ -3,9 +3,9 @@ import { handleChangeValueFilter } from "../../store/Slices/BookListSlice";
 import { useAppDispatch } from "../../store/hook";
 import { RootState } from "../../store/store";
 import "./filterBook.sass";
-import { IFilterBook } from "../../interface";
+import { IFilterBookProps } from "../../interface";
 
-const FilterBook =  ({ items, type }: IFilterBook) => {
+const FilterBook =  ({ items, type }: IFilterBookProps) => {
     const dispatch = useAppDispatch();
 
     const { readingOption, generSearch } = useSelector(

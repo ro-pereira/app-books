@@ -53,7 +53,14 @@ export interface IChipProps {
   selectedOptionsTextType?: string;
 }
 
-export interface IFilterBook {
+export interface IFilterBookProps {
   items: string[];
   type: string;
+}
+
+export interface IButtonWithImageProps {
+  title: string;
+  handleActions: () => void;
+  handleImages: string | undefined;
+  styleButton: string;
 }

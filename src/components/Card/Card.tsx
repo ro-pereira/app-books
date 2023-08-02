@@ -34,8 +34,11 @@ const Card = ({ allBooks, setSelectedBookId }: ICardProps) => {
             </div>
 
             <div className="card__title">
-              <h1>{book.title}</h1>
-              <span>{book.authors}</span>
+              <div className="card__title__box-blur" />
+              <div className="card__title__content">
+                <h1>{book.title}</h1>
+                <span>{book.authors}</span>
+              </div>
             </div>
           </div>
         );

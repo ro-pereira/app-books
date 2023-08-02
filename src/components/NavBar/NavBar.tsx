@@ -57,10 +57,10 @@ const NavBar = () => {
   };
 
   const handleImages = (
-    activeImage: HTMLImageElement,
-    inactiveImage?: HTMLImageElement,
+    activeImage: string | undefined,
+    inactiveImage?: string | undefined,
     title?: string
-  ) => {
+  ): string | undefined => {
     if (title === "filter") {
       if (!showNavigation) {
         return inactiveImage;
@@ -88,16 +88,17 @@ const NavBar = () => {
 
   return (
     <nav className="navBar">
-      <SearchBook />
+      <div className="navBar__filters-input">
+        <SearchBook />
 
-      <div className="navBar__buttons">
-        <ButtonWithImage
-          title="Filter"
-          showNavigation={showNavigation}
-          handleActions={handleShowNavigation}
-          handleImages={handleImages(iconFilterWhite, iconFilter, "filter")}
-          styleButton={handleStyleButtonFilter()}
-        />
+        <div className="navBar__button-filter">
+          <ButtonWithImage
+            title="Filter"
+            handleActions={handleShowNavigation}
+            handleImages={handleImages(iconFilterWhite, iconFilter, "filter")}
+            styleButton={handleStyleButtonFilter()}
+          />
+        </div>
       </div>
 
       {showNavigation && (
@@ -111,11 +112,11 @@ const NavBar = () => {
             />
           )}
 
-          <div className="navBar__content">
-            <div className="navBar__content__reading-options">
-              <FilterBook items={readingOptions} type={"Reading options"} />
+          <div className="navBar__filter-box">
+            <div className="navBar__filter-box__reading-options">
+              <FilterBook items={readingOptions} type="Reading options" />
             </div>
-            <div className="navBar__content__geners">
+            <div className="navBar__filter-box__geners">
               <FilterBook items={geners} type="Gerer" />
               <ButtonWithImage
                 title={

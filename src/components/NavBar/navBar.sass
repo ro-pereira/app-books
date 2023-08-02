@@ -2,45 +2,70 @@
 
 .navBar
     position: relative
-    display: flex
-    gap: 2rem
-    justify-content: space-between
-    flex-wrap: wrap
 
-    div.navBar__buttons
-        width: auto
-        @include flex-row
-        gap: 2rem
-        position: relative
+    div.navBar__filters-input
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        // background: #000
 
-    .navBar__content
-        width: 25.5rem
-        min-height: 20rem
+        div.navBar__button-filter
+            width: auto
+
+    .navBar__filter-box
         position: absolute
-        right: 0rem
-        top: 5rem
         z-index: 2
         border-radius: .5rem
         background: rgb(255, 255, 255)
         border: 1px solid rgb(58, 64, 90)
 
-        div
+        div.navBar__filter-box__reading-options, div.navBar__filter-box__geners
             @include flex-column
 
-        div.navBar__content__reading-options
-            display: flex
-            flex-wrap: wrap
-            ul
-                display: flex
-                flex-wrap: wrap
+@media (max-width: 768px)
+    .navBar
+        div.navBar__filters-input
+            min-width: 20vw
+            gap: 1rem
 
-        button.navBar__content__geners__button
-            all: unset
-            background: rgb(197, 213, 240)
-            padding: 1rem
-            text-align: center
-            font-size: 1.2rem
-            border: 1px solid rgb(58, 64, 90)
+        div.navBar__filter-box
+            min-width: 20vw
+            min-height: 20rem
+            right: 0rem
+            top: 5rem
 
-            &:hover
-                background: rgba(197, 213, 240, 0.63)
+@media (min-width: 769px) and (max-width: 1025px)
+    .navBar
+        div.navBar__filters-input
+            max-width: 40vw
+            gap: 1rem
+
+        div.navBar__filter-box
+            max-width: 40vw
+            min-height: 20rem
+            right: 0rem
+            top: 5rem
+
+@media (min-width: 1025px) and (max-width: 1400px)
+    .navBar
+        div.navBar__filters-input
+            max-width: 28vw
+            gap: 1rem
+
+        div.navBar__filter-box
+            max-width: 28vw
+            min-height: 20rem
+            right: 0rem
+            top: 5rem
+
+@media (min-width: 1400px)
+    .navBar
+        div.navBar__filters-input
+            max-width: 30vw
+            gap: 2rem
+
+        div.navBar__filter-box
+            max-width: 30vw
+            min-height: 20rem
+            right: 0rem
+            top: 5rem

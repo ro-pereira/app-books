@@ -1,5 +1,5 @@
 @import './src/styles/mixins.sass'
-    
+
 button
     all: unset
     cursor: pointer
@@ -7,7 +7,7 @@ button
 button.navBar__buttons__trash
     img
         height: 3rem
-        
+
 button.navBar__buttton, button.navBar__buttton__active, button.remove-filter, button.less__geners, button.more__geners
     height: 4rem
     width: 10rem
@@ -45,8 +45,19 @@ button.less__geners
     img
         transform: rotate(.5turn)
 
-button.remove-filter 
+button.remove-filter
     background: #fff
     position: absolute
     top: 5.2rem
     right: 26.5rem
+
+@media (max-width: 768px)
+    button.navBar__buttton, button.navBar__buttton__active
+        width: 5rem
+        height: 3rem
+
+        span
+            display: none
+
+        // img 
+        //     height: 2rem

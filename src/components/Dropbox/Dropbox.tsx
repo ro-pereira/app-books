@@ -48,7 +48,7 @@ const Dropbox = ({ id }: IDropboxProps) => {
     <div>
       <button
         id="button"
-        className={showDropboxId === id ? "active" : "inactive"}
+        className={`dropdown__button  ${showDropboxId === id ? "active" : "inactive"}`}
         onClick={(e) => toggleOpenDropdown(e, id)}
       >
         <img src={dropdownIcon} alt="bookmark" />

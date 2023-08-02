@@ -1,6 +1,6 @@
 @import './src/styles/mixins.sass'
 
-button
+button.dropdown__button
     all: unset
     position: absolute
     right: 1rem
@@ -20,12 +20,13 @@ button.inactive
 div.dropbox
     min-height: 9rem
     position: absolute
+    z-index: 1
     right: 1rem
     top: 3rem
     @include flex-column
     border-radius: 1rem
     border: 1px solid rgb(58, 64, 90)
-    background: #faf6f6
+    background: #ffffff
     overflow: hidden
     align-items: center
     justify-content: center
@@ -56,9 +57,9 @@ div.dropbox
         li.li__empty-deselected
             justify-content: space-between
 
-        &:hover
-            background: #c5d5f073 !important
-            color: rgb(58, 64, 90) !important
+            &:hover
+                background: #c5d5f073 !important
+                color: rgb(58, 64, 90) !important
 
         img
             height: 1rem !important
