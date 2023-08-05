@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import dropdownIcon from "../../assets/arrow-down.png";
 import checkMark from "../../assets/check-mark.png";
-import { IDropboxProps } from "../../interface";
+import { IDropdownProps } from "../../interface";
 import { allBooksList, alreadyRead } from "../../store/Slices/BookListSlice";
 import { useAppDispatch } from "../../store/hook";
-import "./dropbox.sass";
+import "./dropdown.sass";
 
-const Dropbox = ({ id }: IDropboxProps) => {
+const Dropdown = ({ id }: IDropdownProps) => {
   const { books } = useSelector(allBooksList);
-  const [showDropboxId, setShowDropboxIdId] = useState<null | number>(null);
+  const [showDropdownId, setShowDropdownId] = useState<null | number>(null);
   const [selectedOption, setSelectedOption] = useState("empty");
   const { readingOptions } = useSelector(allBooksList);
   const dispatch = useAppDispatch();
@@ -20,20 +20,20 @@ const Dropbox = ({ id }: IDropboxProps) => {
   }, [books, id]);
 
   useEffect(() => {
-    if (showDropboxId)
-      dispatch(alreadyRead({ id: showDropboxId, bookmark: selectedOption }));
-  }, [dispatch, selectedOption, showDropboxId]);
+    if (showDropdownId)
+      dispatch(alreadyRead({ id: showDropdownId, bookmark: selectedOption }));
+  }, [dispatch, selectedOption, showDropdownId]);
 
   const toggleOpenDropdown = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     id: number
   ) => {
     e.stopPropagation();
-    if (id === showDropboxId) {
-      setShowDropboxIdId(null);
+    if (id === showDropdownId) {
+      setShowDropdownId(null);
       return;
     }
-    setShowDropboxIdId(id);
+    setShowDropdownId(id);
   };
 
   const handleChooseOptions = (
@@ -48,14 +48,14 @@ const Dropbox = ({ id }: IDropboxProps) => {
     <div>
       <button
         id="button"
-        className={`dropdown__button  ${showDropboxId === id ? "active" : "inactive"}`}
+        className={`dropdown__button  ${showDropdownId === id ? "active" : "inactive"}`}
         onClick={(e) => toggleOpenDropdown(e, id)}
       >
         <img src={dropdownIcon} alt="bookmark" />
       </button>
 
-      {showDropboxId && (
-        <div className="dropbox">
+      {showDropdownId && (
+        <div className="dropdown">
           <ul>
             {readingOptions.map((option) => (
               <li
@@ -87,4 +87,4 @@ const Dropbox = ({ id }: IDropboxProps) => {
   );
 };
 
-export default Dropbox;
+export default Dropdown;

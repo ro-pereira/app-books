@@ -1,3 +1,4 @@
+@import './src/styles/mixins.sass'
 .color-select
     background: rgba(58, 64, 90, 0.5) !important
 
@@ -9,11 +10,10 @@ span.listFilter__span
     width: 100%
 
 ul
-    display: flex
-    flex-wrap: wrap
+    @include flex-wrap
     gap: .5rem
     padding: 1rem .8rem
-    // background: #000
+
     li
         list-style-type: none
         cursor: pointer
@@ -25,19 +25,23 @@ ul
         &:hover
             background: rgba(58, 64, 90, 0.1) !important
 
-// @media (max-width: 768px)
-// @media (min-width: 769px) and (max-width: 1025px)
-// @media (min-width: 1025px) and (max-width: 1400px)
-// @media (min-width: 1400px)
+@media (max-width: 768px)
+    div.navBar__filter-box__reading-options, div.navBar__filter-box__geners
+        span.listFilter__span
+            height: 5rem
+            text-align: center
 
+    div.navBar__filter-box__reading-options
+        span.listFilter__span
+            min-width: 10rem
+            border-right: .1rem solid #221a1a
 
-            // button.navBar__filter__geners__button
-            //     all: unset
-            //     background: rgb(197, 213, 240)
-            //     padding: 1rem
-            //     text-align: center
-            //     font-size: 1.2rem
-            //     border: 1px solid rgb(58, 64, 90)
+    div.navBar__filter-box__geners
+        ul
+            border-left: .1rem solid rgb(58, 64, 90)
 
-            //     &:hover
-            //         background: rgba(197, 213, 240, 0.63)
+@media (min-width: 769px) 
+    div.navBar__filter-box__reading-options, div.navBar__filter-box__geners
+        span.listFilter__span
+            height: auto
+            text-align: start

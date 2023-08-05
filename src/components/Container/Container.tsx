@@ -9,7 +9,7 @@ import Modal from "../Modal/Modal";
 
 const Container = () => {
   const dispatch = useAppDispatch();
-  const { books, filterOptions } = useSelector(allBooksList);
+  const { books, filterOptions, status } = useSelector(allBooksList);
   const [allBooks, setAllBooks] = useState<IBooksResponse[]>([]);
   const [selectedBookId, setSelectedBookId] = useState<number | null>(null);
   const { inputValue, generSearch, readingOption } = filterOptions;
@@ -79,6 +79,14 @@ const Container = () => {
   useEffect(() => {
     setAllBooks(filteredBooks);
   }, [filteredBooks]);
+
+  if (status === "loading" || status === "failed") {
+    return (
+      <div className="container__loading">
+        <span>Loading...</span>
+      </div>
+    );
+  }
 
   return (
     <div className="container">

@@ -37,7 +37,7 @@ export interface ICardProps {
   setSelectedBookId: Dispatch<SetStateAction<number | null>>;
 }
 
-export interface IDropboxProps {
+export interface IDropdownProps {
   id: number
 }
 

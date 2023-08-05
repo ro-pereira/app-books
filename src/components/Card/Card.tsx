@@ -1,5 +1,5 @@
 import { ICardProps } from "../../interface";
-import Dropbox from "../Dropbox/Dropbox";
+import Dropbox from "../Dropbox/Dropdown";
 import "./card.sass";
 import { allBooksList } from "../../store/Slices/BookListSlice";
 import { useSelector } from "react-redux";

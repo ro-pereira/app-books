@@ -1,8 +1,13 @@
 @import './src/styles/mixins.sass'
 
 .container
+    position: relative
+    top: 10rem
     @include flex-wrap
     justify-content: center
+
+div.container__loading
+    font-size: 1.4rem
 
 @media (max-width: 768px)
     .container
@@ -23,3 +28,7 @@
     .container
         padding: 4rem 0
         gap: 4rem
+
+@media (max-height: 400px)
+    .container
+        top: 0

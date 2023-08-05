@@ -4,10 +4,8 @@
     position: relative
 
     div.navBar__filters-input
-        display: flex
         justify-content: space-between
-        flex-wrap: wrap
-        // background: #000
+        @include flex-wrap
 
         div.navBar__button-filter
             width: auto
@@ -29,10 +27,12 @@
             gap: 1rem
 
         div.navBar__filter-box
-            min-width: 20vw
-            min-height: 20rem
+            min-width: 90vw
+            min-height: 10rem
             right: 0rem
-            top: 5rem
+            top: 4rem
+            @include flex-row
+            // background: #000
 
 @media (min-width: 769px) and (max-width: 1025px)
     .navBar
@@ -45,6 +45,7 @@
             min-height: 20rem
             right: 0rem
             top: 5rem
+            @include flex-column
 
 @media (min-width: 1025px) and (max-width: 1400px)
     .navBar

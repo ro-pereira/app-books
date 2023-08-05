@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IBooksResponse, IModalProps } from "../../interface";
 import Chip from "../Chip/Chip";
-import Dropbox from "../Dropbox/Dropbox";
+import Dropbox from "../Dropbox/Dropdown";
 import "./modal.sass";
 
 const optionsTextTypes = ["description", "Quote1", "Quote2", "Quote3"];

@@ -1,0 +1,19 @@
+@import './src/styles/mixins.sass'
+
+div.pageNotFound
+    height: 100vh
+    width: 100vw
+    background: rgb(206, 210, 226)
+    @include flex-column-juntify-align-center
+    gap: 2rem
+
+    div.pageNotFound__link
+        @include flex-row-align-center
+        gap: .5rem
+        span
+            font-size: 2rem
+            color: rgb(58, 64, 90)
+
+        a
+            font-size: 2rem
+            font-weight: bold

@@ -41,7 +41,7 @@ const NavBar = () => {
       return undefined;
     });
 
-    setGeners(showGeners);
+    setGeners(showGeners);    
   }, [books, showMoreGerers]);
 
   useEffect(() => {
@@ -118,7 +118,9 @@ const NavBar = () => {
             </div>
             <div className="navBar__filter-box__geners">
               <FilterBook items={geners} type="Gerer" />
-              <ButtonWithImage
+              {
+                books.length > 10 && 
+                <ButtonWithImage
                 title={
                   books.length === showMoreGerers
                     ? "show less genres"
@@ -132,6 +134,7 @@ const NavBar = () => {
                     : "more__geners"
                 }
               />
+              }
             </div>
           </div>
         </>
